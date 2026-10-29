@@ -1,0 +1,7 @@
+# dsh-stuck-reply 运行时配置示例（无密钥：飞书凭据在 lark-cli 自身认证里，不进包不进 git）
+stateRoot: '/path/to/dsh-stuck/state'   # 必填：与外挂 watch 共享的状态根
+larkCli: 'lark-cli'                     # 绝对路径或 PATH 命令名
+pollMs: 3000                # 意图轮询间隔
+heartbeatMs: 30000          # 心跳写间隔
+heartbeatTimeoutMs: 90000   # 对端失联阈值（3 个周期）
+textLimit: 6000

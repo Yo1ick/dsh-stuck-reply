@@ -1,0 +1,19 @@
+# dsh-stuck-reply bundle patch（B 形态：插件=飞书通知/收回复/应用答案/回执；检测在外挂 watch）
+# 行 id 部署本地，name 必须与 package.json 的包名一致。
+# config 全是路径与间隔，无任何密钥（飞书凭据在 lark-cli 自身认证与桥的运行时配置里）。
+
+- insert:
+    - id: dsh-stuck-reply
+      name: 'dsh-stuck-reply'
+      config:
+        # 必填：意图/状态根目录，须与外挂 watch 共享（watch 不在本仓，见 README「两件套」）
+        stateRoot: '/path/to/dsh-stuck/state'
+        # lark-cli：绝对路径，或 PATH 里的命令名（缺失会在启动时 fail loud）
+        larkCli: 'lark-cli'
+        # 意图轮询间隔（毫秒）
+        pollMs: 3000
+        # 心跳：写间隔 / 对端失联阈值（毫秒）
+        heartbeatMs: 30000
+        heartbeatTimeoutMs: 90000
+        # 通知文本上限
+        textLimit: 6000

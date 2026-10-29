@@ -1,0 +1,24 @@
+{
+  "name": "dsh-stuck-reply",
+  "description": "卡住会话飞书答复代理：DSH 会话卡住（提问/审批/计划）时通过飞书通知你，你在飞书回复，答案自动喂回会话。不搬会话、不抢控制权——卡住才介入的急诊。",
+  "version": "0.1.0",
+  "type": "module",
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "feishu", "lark", "notification", "approval", "cordis"],
+  "packageManager": "pnpm@11.7.0",
+  "engines": { "node": ">=22.4.0" },
+  "main": "index.js",
+  "exports": { ".": { "default": "./index.js" } },
+  "files": ["index.js", "lib", "standalone.mjs", "cordis.patch.yml", "config.example.yaml", "README.md"],
+  "peerDependencies": { "@deepseek-ai/cordis": "^4.0.1" },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yo1ick/dsh-stuck-reply.git"
+  },
+  "author": "Yo1ick <93521681+Yo1ick@users.noreply.github.com>",
+  "license": "MIT"
+}
