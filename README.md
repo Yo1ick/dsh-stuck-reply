@@ -59,4 +59,5 @@ node standalone.mjs --state-root /path/to/dsh-stuck/state --lark-cli /opt/homebr
 - 插件不注册任何工具/事件/subagent，不碰会话 seam；只做文件轮询 + lark-cli 出站调用。
 - 意图文件协议 v1（原子写、版本校验、id 幂等、done/ 归档）。
 - 发送异步（15s 超时），飞书卡住不会拖死轮询；发送失败不归档，最多重试 3 次后放弃并写 `plugin.log`。
+- 同一 `stateRoot` 有单实例锁（`plugin.lock` + pid 存活检测）：bundle 形态和 standalone 可以同时装，但只有一个在消费；持有者崩溃后另一个自动接管。
 
